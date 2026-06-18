@@ -1,0 +1,19 @@
+# Virtual Environment
+venv/
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ML Artifacts
+artifacts/*.pkl
+
+# Logs
+logs/
+
+# Environment Variables
+.env
