@@ -7,4 +7,3 @@ xgboost
 lightgbm
 catboost
 setuptools
--e .
