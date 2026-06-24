@@ -1,6 +1,6 @@
 # Import Python's built-in logging module
 # Used to track program execution, warnings, errors, and debugging information
-import logging as logger
+import logging
 
 # Import os module
 # Used for creating folders and working with file paths
@@ -33,7 +33,7 @@ LOG_FILE_PATH = os.path.join(
 )
 
 # Configure logging settings
-logger.basicConfig(
+logging.basicConfig(
 
     # Location where logs will be stored
     filename=LOG_FILE_PATH,
@@ -42,7 +42,7 @@ logger.basicConfig(
     format="[%(asctime)s] %(levelname)s - %(message)s",
 
     # Record INFO, WARNING, ERROR and CRITICAL messages
-    level=logger.INFO
+    level=logging.INFO
 )
 
 # This block executes only when this file is run directly
