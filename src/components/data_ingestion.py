@@ -21,6 +21,8 @@ from src.logger import logging
 
 from src.components.data_validation import DataValidation
 
+from src.components.data_transformation import DataTransformation,DataTransformationConfig
+
 
 # Configuration class to store all file paths
 @dataclass
@@ -183,6 +185,9 @@ if __name__ == "__main__":
             file_path="notebooks\\data\\alzheimers_disease_data.csv"
         )
     )
+
+    data_transformation = DataTransformation()
+    train_array, test_array, _=data_transformation.initiate_data_transformation(train_path=train_path, test_path=test_path)
 
     print("Train File :", train_path)
     print("Test File  :", test_path)

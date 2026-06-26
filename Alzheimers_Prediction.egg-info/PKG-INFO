@@ -13,6 +13,7 @@ Requires-Dist: xgboost
 Requires-Dist: lightgbm
 Requires-Dist: catboost
 Requires-Dist: setuptools
+Requires-Dist: dill
 Dynamic: author
 Dynamic: author-email
 Dynamic: requires-dist
