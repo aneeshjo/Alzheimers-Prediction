@@ -139,3 +139,24 @@ def evaluate_model(model, X_test, y_test):
         logging.error("Error occurred while evaluating model.")
 
         raise CustomException(e, sys)
+    
+def load_object(file_path):
+    """
+    Loads a Python object from a file using dill.
+    
+    Parameters:
+    - file_path: str, the path to the file from which the object should be loaded
+    
+    Returns:
+    - The Python object loaded from the specified file path
+    """
+    try:
+        with open(file_path, 'rb') as file_obj:
+            obj = dill.load(file_obj)
+        
+        logging.info(f"Object loaded successfully from {file_path}.")
+        return obj
+    
+    except Exception as e:
+        logging.error("Error occurred while loading the object.")
+        raise CustomException(e, sys)

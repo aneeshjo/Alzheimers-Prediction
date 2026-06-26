@@ -8,3 +8,5 @@ lightgbm
 catboost
 setuptools
 dill
+streamlit
+PyYAML

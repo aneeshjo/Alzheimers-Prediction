@@ -1,0 +1,12 @@
+# Dataset Configuration
+dataset_path: notebooks/data/alzheimers_disease_data.csv
+
+# Train-Test Split
+test_size: 0.20
+random_state: 42
+
+# Model Configuration
+model_name: LightGBM
+
+# Artifacts Directory
+artifacts_dir: artifacts

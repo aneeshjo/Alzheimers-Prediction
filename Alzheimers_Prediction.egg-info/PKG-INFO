@@ -14,6 +14,8 @@ Requires-Dist: lightgbm
 Requires-Dist: catboost
 Requires-Dist: setuptools
 Requires-Dist: dill
+Requires-Dist: streamlit
+Requires-Dist: PyYAML
 Dynamic: author
 Dynamic: author-email
 Dynamic: requires-dist

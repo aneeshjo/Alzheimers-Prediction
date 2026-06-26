@@ -46,7 +46,8 @@ class ModelTrainer:
     def initiate_model_trainer(
         self,
         train_array,
-        test_array
+        test_array,
+        feature_names
         ):
         """
         Train the final LightGBM model and save it.
@@ -101,6 +102,24 @@ class ModelTrainer:
             )
 
             logging.info("Model training completed.")
+
+            # Get feature names from the transformed training dataframe
+
+            feature_importance = pd.DataFrame({
+                "Feature": feature_names,
+                "Importance": model.feature_importances_
+            })
+
+            feature_importance.sort_values(
+                by="Importance",
+                ascending=False,
+                inplace=True
+            )
+
+            feature_importance.to_csv(
+                "artifacts/feature_importance.csv",
+                index=False
+            )
 
             # ==============================
             # Evaluate trained model

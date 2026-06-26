@@ -189,11 +189,11 @@ if __name__ == "__main__":
     )
 
     data_transformation = DataTransformation()
-    train_array, test_array, _=data_transformation.initiate_data_transformation(train_path=train_path, test_path=test_path)
+    train_array, test_array, _,feature_names=data_transformation.initiate_data_transformation(train_path=train_path, test_path=test_path)
 
     print("Train File :", train_path)
     print("Test File  :", test_path)
 
     modelTrainer=ModelTrainer()
 
-    print(modelTrainer.initiate_model_trainer(train_array=train_array,test_array=test_array))
+    modelTrainer.initiate_model_trainer(train_array=train_array,test_array=test_array,feature_names=feature_names)

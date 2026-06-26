@@ -64,6 +64,20 @@ class DataTransformation:
 
             train_df = pd.read_csv(train_path)
 
+            default_values = train_df.drop(
+                columns=[
+                    "PatientID",
+                    "DoctorInCharge",
+                    "Diagnosis"
+                ]
+            ).median(
+                numeric_only=True
+            )
+
+            default_values.to_json(
+                "artifacts/default_values.json"
+            )
+
             logging.info(f"Training dataset loaded successfully with shape {train_df.shape}")
 
             # ==============================
@@ -128,6 +142,16 @@ class DataTransformation:
             numerical_columns = (
                 continuous_columns +
                 numerical_integer_columns
+            )
+
+            # ==============================
+            # All Feature Names
+            # ==============================
+
+            feature_names = (
+                numerical_columns +
+                categorical_columns +
+                binary_columns
             )
 
             # ==============================
@@ -238,7 +262,7 @@ class DataTransformation:
 
             logging.info("Data Transformation Pipeline Created Successfully.")
 
-            return preprocessor
+            return preprocessor,feature_names
 
         except Exception as e:
 
@@ -279,7 +303,7 @@ class DataTransformation:
             target_feature_test_df = test_df[target_column_name]
 
             # Get the preprocessor object
-            preprocessor_obj = self.get_data_transformer_object(train_path=train_path)
+            preprocessor_obj,featur_names = self.get_data_transformer_object(train_path=train_path)
 
             # Fit and transform the training features, and transform the testing features
             input_feature_train_arr = preprocessor_obj.fit_transform(input_feature_train_df)
@@ -302,6 +326,7 @@ class DataTransformation:
                 transformed_train_arr,
                 transformed_test_arr,
                 self.data_transformation_config.preprocessor_obj_file_path,
+                featur_names
             )
 
         except Exception as e:
