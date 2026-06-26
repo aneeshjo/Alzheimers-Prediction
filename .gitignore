@@ -1,7 +1,6 @@
 # Virtual Environment
 venv/
 
-.artifacts
 
 # Python Cache
 __pycache__/

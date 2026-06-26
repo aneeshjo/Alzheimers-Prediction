@@ -23,6 +23,8 @@ from src.components.data_validation import DataValidation
 
 from src.components.data_transformation import DataTransformation,DataTransformationConfig
 
+from src.components.model_trainer import ModelTrainer
+
 
 # Configuration class to store all file paths
 @dataclass
@@ -191,3 +193,7 @@ if __name__ == "__main__":
 
     print("Train File :", train_path)
     print("Test File  :", test_path)
+
+    modelTrainer=ModelTrainer()
+
+    print(modelTrainer.initiate_model_trainer(train_array=train_array,test_array=test_array))
